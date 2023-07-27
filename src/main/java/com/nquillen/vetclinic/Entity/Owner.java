@@ -18,5 +18,7 @@ public class Owner {
 
     private String email;
 
+    private String phoneNumber;
+
     private List<Pet> pets;
 }
