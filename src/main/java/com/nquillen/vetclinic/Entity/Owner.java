@@ -80,6 +80,7 @@ public class Owner {
         if (this.pets == null) {
             this.pets = new ArrayList<>();
         }
+        this.pets.add(thePet);
     }
 
     @Override
