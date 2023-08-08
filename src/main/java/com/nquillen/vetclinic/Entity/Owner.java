@@ -23,8 +23,8 @@ public class Owner {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "owner_id")
+    @OneToMany(mappedBy = "owner",
+            fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Pet> pets;
 
     public Owner() {
@@ -81,6 +81,7 @@ public class Owner {
             this.pets = new ArrayList<>();
         }
         this.pets.add(thePet);
+        thePet.setOwner(this);
     }
 
     @Override

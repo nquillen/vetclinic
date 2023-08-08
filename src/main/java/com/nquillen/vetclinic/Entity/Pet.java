@@ -23,6 +23,11 @@ public class Pet {
     @Column(name = "weight")
     private double weight;
 
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
+
     public Pet () {}
 
     public Pet(String name, String breed, int age, double weight) {
@@ -70,6 +75,14 @@ public class Pet {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     @Override
