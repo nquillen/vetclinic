@@ -13,17 +13,19 @@ public interface OwnerPetService {
 
     Owner findOwnerAndPetsByOwnerId(int id);
 
-    Pet findPetByName(String name);
+    public Pet findPetByPetId(int id);
+
+    List<Pet> findPetByName(String name);
 
     Owner saveOwner(Owner owner);
 
-    Pet savePet(Pet pet);
+    public Pet savePet(Pet pet);
 
     void deleteOwnerById(int id);
 
     void deletePetById(int id);
 
-    Owner findByOwnerName(String name);
+    List<Owner> findByOwnerName(String name);
 
     Owner findByPhoneNumber(String phoneNumber);
 
