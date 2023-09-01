@@ -24,7 +24,7 @@ public class Pet {
     private double weight;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
-            CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+            CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id")
     private Owner owner;
 
@@ -93,6 +93,7 @@ public class Pet {
                 ", breed='" + breed + '\'' +
                 ", age=" + age +
                 ", weight=" + weight +
+                ", owner=" + owner.getName() +
                 '}';
     }
 }
