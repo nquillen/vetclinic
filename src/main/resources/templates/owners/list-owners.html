@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Owner Directory</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Owner Directory</h3>
+    <hr>
+
+    <a th:href="@{/owners/showFormForAdd}"
+       class="btn btn-primary btn-sm mb-3">
+        Add Owner
+    </a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Pets</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="tempOwner: ${owners}">
+                <td th:text="${tempOwner.name}" />
+                <td th:text="${tempOwner.email}" />
+                <td th:text="${tempOwner.phoneNumber}" />
+                <td th:text="${tempOwner.pets}" />
+
+                <td>
+                    <a href="@{/owners/showFormForUpdate(ownerId=${tempOwner.id})}"
+                       cladd="btn btn-info btn-sm">
+                        Update
+                    </a>
+
+                    <a th:href="@{/owners/delte(employeeId=${tempOwner.id})}"
+                       class="btn btn-danger btn-sm"
+                       onclick="if (!(confirm('Are you sure you want to delete this owner?'))) return false">
+                    </a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
