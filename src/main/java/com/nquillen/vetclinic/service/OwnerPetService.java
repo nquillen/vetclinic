@@ -17,7 +17,7 @@ public interface OwnerPetService {
 
     List<Pet> findPetByName(String name);
 
-    Owner saveOwner(Owner owner);
+    void saveOwner(Owner owner);
 
     public Pet savePet(Pet pet);
 

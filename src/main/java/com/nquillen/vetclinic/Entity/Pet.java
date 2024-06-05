@@ -12,7 +12,7 @@ public class Pet {
     private int id;
 
     @Column(name = "name")
-    private String name;
+    private String petName;
 
     @Column(name = "breed")
     private String breed;
@@ -30,8 +30,8 @@ public class Pet {
 
     public Pet () {}
 
-    public Pet(String name, String breed, int age, double weight) {
-        this.name = name;
+    public Pet(String petName, String breed, int age, double weight) {
+        this.petName = petName;
         this.breed = breed;
         this.age = age;
         this.weight = weight;
@@ -45,12 +45,12 @@ public class Pet {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPetName() {
+        return petName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPetName(String petName) {
+        this.petName = petName;
     }
 
     public String getBreed() {
@@ -89,7 +89,7 @@ public class Pet {
     public String toString() {
         return "Pet{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + petName + '\'' +
                 ", breed='" + breed + '\'' +
                 ", age=" + age +
                 ", weight=" + weight +

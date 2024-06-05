@@ -64,12 +64,16 @@ public class OwnerPetServiceImpl implements OwnerPetService{
 
 
     @Override
-    public Owner saveOwner(Owner owner) {
-        return ownerRepository.save(owner);
+    public void saveOwner(Owner owner) {ownerRepository.save(owner);
     }
 
     @Override
     public Pet savePet(Pet pet) {
+        Owner owner = pet.getOwner();
+        if (owner != null) {
+            owner.getPets().add(pet); // Add the pet to the owner's pet list
+        }
+
         return petRepository.save(pet);
     }
 
@@ -90,18 +94,18 @@ public class OwnerPetServiceImpl implements OwnerPetService{
     //TODO
     @Override
     public List<Pet> findPetByName(String name) {
-        return petRepository.findByName(name);
+        return petRepository.findByPetName(name);
     }
 
     // TODO
     @Override
     public List<Owner> findByOwnerName(String name) {
-        return null;
+        return ownerRepository.findByName(name);
     }
 
     //TODO
     @Override
     public Owner findByPhoneNumber(String phoneNumber) {
-        return null;
+        return ownerRepository.findByPhoneNumber(phoneNumber);
     }
 }

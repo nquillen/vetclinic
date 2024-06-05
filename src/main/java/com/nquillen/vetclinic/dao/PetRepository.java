@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Integer> {
 
-    List<Pet> findByName(String name);
+     List<Pet> findByPetName(String name);
 
 }

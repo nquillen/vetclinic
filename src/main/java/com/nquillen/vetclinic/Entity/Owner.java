@@ -34,6 +34,7 @@ public class Owner {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.pets = new ArrayList<>();
     }
 
     public int getId() {
